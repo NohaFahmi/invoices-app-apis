@@ -15,7 +15,7 @@ const InvoiceSchema = new mongoose.Schema(
       clientAddress: { type: String },
     },
     items: { type: mongoose.Schema.Types.Array },
-    totalInvoicePrice: { trype: Number },
+    totalInvoicePrice: { type: Number },
   },
   { timestamps: true }
 );
