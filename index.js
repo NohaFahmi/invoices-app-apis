@@ -6,10 +6,10 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const invoices = require("./routes/invoices");
+const config = require("./config")
 
-dotenv.config();
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(config.mongo.url)
   .then(() => console.debug("DBConnection success!"))
   .catch((err) => {
     console.log(err);
@@ -42,6 +42,6 @@ app.use(cors());
 
 app.use("/api/invoices/", invoices);
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(config.server.port, () => {
   console.debug("App listening on https://localhost:5000");
 });
